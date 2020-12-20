@@ -29,7 +29,7 @@ type Postgres struct {
 // Export produces a `pg_dump` of the specified database, and creates a gzip compressed tarball archive.
 func (x Postgres) Export() *ExportResult {
 	result := &ExportResult{MIME: "application/octet-stream"}
-	result.Path = fmt.Sprintf(`%v_%v.sql.tar.gz`, x.DB, time.Now().Unix())
+	result.Path = fmt.Sprintf(`%v_%v.sql`, x.DB, time.Now().Unix())
 	options := append(x.dumpOptions(), "-Fp", fmt.Sprintf(`-f%v`, result.Path))
 	out, err := exec.Command(PGDumpCmd, options...).Output()
 	if err != nil {
