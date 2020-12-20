@@ -7,8 +7,6 @@ import (
 )
 
 var (
-	// TarCmd is the path to the `tar` executable
-	TarCmd = "tar"
 	// PGDumpCmd is the path to the `pg_dump` executable
 	PGDumpCmd = "pg_dump"
 )
